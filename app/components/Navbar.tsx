@@ -19,53 +19,57 @@ const Navbar = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  const handleResumeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    window.open("/Abhishek-jaiswar.pdf", "_blank");
+  };
+
   return (
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-[#0a192f]/90 backdrop-blur-md" : "bg-transparent"
+        isScrolled ? "bg-[#1A202C]/90 backdrop-blur-md" : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <Link
             href="/"
-            className="text-[#64ffda] font-mono text-lg z-50"
+            className="text-[#66FCF1] font-mono text-lg z-50"
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            &lt;YourName /&gt;
+            &lt;Abhishek Jaiswar /&gt;
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <Link
               href="#about"
-              className="text-[#8892b0] hover:text-[#64ffda] transition-colors font-mono text-sm"
+              className="text-[#A0AEC0] hover:text-[#66FCF1] transition-colors font-mono text-sm"
             >
-              <span className="text-[#64ffda]">01.</span> About
+              <span className="text-[#66FCF1]">01.</span> About
             </Link>
             <Link
               href="#experience"
-              className="text-[#8892b0] hover:text-[#64ffda] transition-colors font-mono text-sm"
+              className="text-[#A0AEC0] hover:text-[#66FCF1] transition-colors font-mono text-sm"
             >
-              <span className="text-[#64ffda]">02.</span> Experience
+              <span className="text-[#66FCF1]">02.</span> Experience
             </Link>
             <Link
               href="#projects"
-              className="text-[#8892b0] hover:text-[#64ffda] transition-colors font-mono text-sm"
+              className="text-[#A0AEC0] hover:text-[#66FCF1] transition-colors font-mono text-sm"
             >
-              <span className="text-[#64ffda]">03.</span> Work
+              <span className="text-[#66FCF1]">03.</span> Work
             </Link>
             <Link
               href="#contact"
-              className="text-[#8892b0] hover:text-[#64ffda] transition-colors font-mono text-sm"
+              className="text-[#A0AEC0] hover:text-[#66FCF1] transition-colors font-mono text-sm"
             >
-              <span className="text-[#64ffda]">04.</span> Contact
+              <span className="text-[#66FCF1]">04.</span> Contact
             </Link>
             <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#64ffda] border border-[#64ffda] px-4 py-2 rounded font-mono text-sm hover:bg-[#64ffda]/10 transition-colors"
+              href="/Abhishek-jaiswar.pdf"
+              onClick={handleResumeClick}
+              className="text-[#66FCF1] border border-[#66FCF1] px-4 py-2 rounded font-mono text-sm hover:bg-[#66FCF1]/10 transition-colors"
             >
               Resume
             </a>
@@ -75,7 +79,7 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={toggleMobileMenu}
-              className="text-[#64ffda] focus:outline-none focus:ring-2 focus:ring-[#64ffda] z-50"
+              className="text-[#66FCF1] focus:outline-none focus:ring-2 focus:ring-[#66FCF1] z-50"
               aria-label="Toggle mobile menu"
             >
               {isMobileMenuOpen ? (
@@ -117,45 +121,46 @@ const Navbar = () => {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 bg-[#0a192f]/95 transform transition-transform duration-300 ease-in-out md:hidden ${
+        className={`fixed inset-0 bg-[#1A202C]/95 transform transition-transform duration-300 ease-in-out md:hidden ${
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <div className="flex flex-col items-center justify-center h-full space-y-8">
           <Link
             href="#about"
-            className="text-[#ccd6f6] hover:text-[#64ffda] transition-colors font-mono text-2xl"
+            className="text-[#E2E8F0] hover:text-[#66FCF1] transition-colors font-mono text-2xl"
             onClick={toggleMobileMenu}
           >
-            <span className="text-[#64ffda]">01.</span> About
+            <span className="text-[#66FCF1]">01.</span> About
           </Link>
           <Link
             href="#experience"
-            className="text-[#ccd6f6] hover:text-[#64ffda] transition-colors font-mono text-2xl"
+            className="text-[#E2E8F0] hover:text-[#66FCF1] transition-colors font-mono text-2xl"
             onClick={toggleMobileMenu}
           >
-            <span className="text-[#64ffda]">02.</span> Experience
+            <span className="text-[#66FCF1]">02.</span> Experience
           </Link>
           <Link
             href="#projects"
-            className="text-[#ccd6f6] hover:text-[#64ffda] transition-colors font-mono text-2xl"
+            className="text-[#E2E8F0] hover:text-[#66FCF1] transition-colors font-mono text-2xl"
             onClick={toggleMobileMenu}
           >
-            <span className="text-[#64ffda]">03.</span> Work
+            <span className="text-[#66FCF1]">03.</span> Work
           </Link>
           <Link
             href="#contact"
-            className="text-[#ccd6f6] hover:text-[#64ffda] transition-colors font-mono text-2xl"
+            className="text-[#E2E8F0] hover:text-[#66FCF1] transition-colors font-mono text-2xl"
             onClick={toggleMobileMenu}
           >
-            <span className="text-[#64ffda]">04.</span> Contact
+            <span className="text-[#66FCF1]">04.</span> Contact
           </Link>
           <a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#64ffda] border border-[#64ffda] px-6 py-3 rounded font-mono text-xl hover:bg-[#64ffda]/10 transition-colors"
-            onClick={toggleMobileMenu}
+            href="/Abhishek-jaiswar.pdf"
+            onClick={(e) => {
+              handleResumeClick(e);
+              toggleMobileMenu();
+            }}
+            className="text-[#66FCF1] border border-[#66FCF1] px-6 py-3 rounded font-mono text-xl hover:bg-[#66FCF1]/10 transition-colors"
           >
             Resume
           </a>

@@ -57,7 +57,7 @@ const Projects = () => {
       title: "Project Two",
       description:
         "An e-commerce platform with features like product search, cart management, and payment integration. Built with React, Node.js, and MongoDB.",
-      image: "/project1.png",
+      image: "/project2.png",
       tags: ["React", "Node.js", "MongoDB", "Stripe"],
       github: "https://github.com/yourusername/project2",
       live: "https://project2.com",
@@ -131,9 +131,10 @@ const Projects = () => {
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
-          <h2 className="text-3xl font-bold text-[#ccd6f6] mb-12">
-            <span className="text-[#64ffda] font-mono">03.</span> Some Things
-            I've Built
+          <h2 className="flex items-center text-3xl font-bold text-[#E2E8F0] mb-12 relative">
+            <span className="text-[#66FCF1] font-mono text-xl mr-4">03.</span>
+            Some Things I&#39;ve Built
+            <span className="flex-grow block h-[1px] bg-[#4A5568] ml-4"></span>
           </h2>
           <div className="space-y-24 mb-24">
             {featuredProjects.map((project, index) => (
@@ -156,8 +157,8 @@ const Projects = () => {
                       fill
                       className="object-cover transition-transform duration-300 group-hover:scale-105"
                     />
-                    {/* Initial subtle dark overlay, changes to mint on hover */}
-                    <div className="absolute inset-0 bg-[#0a192f]/50 transition-colors duration-300 group-hover:bg-[#64ffda]/20" />
+                    {/* Initial subtle dark overlay, changes to accent on hover */}
+                    <div className="absolute inset-0 bg-[#1A202C]/50 transition-colors duration-300 group-hover:bg-[#66FCF1]/20" />
                   </div>
                 </div>
 
@@ -169,18 +170,18 @@ const Projects = () => {
                       : "md:col-start-7 md:col-span-6"
                   }`}
                 >
-                  <p className="text-[#64ffda] font-mono text-sm mb-2">
+                  <p className="text-[#66FCF1] font-mono text-sm mb-2">
                     Featured Project
                   </p>
-                  <h3 className="text-2xl font-bold text-[#ccd6f6] mb-4">
+                  <h3 className="text-2xl font-bold text-[#E2E8F0] mb-4">
                     {project.title}
                   </h3>
-                  <div className="bg-[#112240] p-6 rounded-lg shadow-lg mb-4">
-                    <p className="text-[#8892b0]">{project.description}</p>
+                  <div className="bg-[#2D3748] p-6 rounded-lg shadow-lg mb-4">
+                    <p className="text-[#A0AEC0]">{project.description}</p>
                   </div>
                   <ul className="flex flex-wrap gap-2 mb-4 font-mono text-sm">
                     {project.tags.map((tag, i) => (
-                      <li key={i} className="text-[#8892b0]">
+                      <li key={i} className="text-[#A0AEC0]">
                         {tag}
                       </li>
                     ))}
@@ -190,7 +191,7 @@ const Projects = () => {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#ccd6f6] hover:text-[#64ffda] transition-colors"
+                      className="text-[#E2E8F0] hover:text-[#66FCF1] transition-colors"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -210,7 +211,7 @@ const Projects = () => {
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#ccd6f6] hover:text-[#64ffda] transition-colors"
+                      className="text-[#E2E8F0] hover:text-[#66FCF1] transition-colors"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -235,12 +236,12 @@ const Projects = () => {
           </div>
 
           <div className="text-center mt-20">
-            <h2 className="text-3xl font-bold text-[#ccd6f6] mb-8">
+            <h2 className="text-3xl font-bold text-[#E2E8F0] mb-8">
               Other Noteworthy Projects
             </h2>
             <Link
               href="/archive"
-              className="text-[#64ffda] font-mono text-sm hover:underline"
+              className="text-[#66FCF1] font-mono text-sm hover:underline"
             >
               view the archive
             </Link>
@@ -248,7 +249,7 @@ const Projects = () => {
               {otherProjects.map((project, index) => (
                 <div
                   key={index}
-                  className="bg-[#112240] p-6 rounded-lg shadow-lg flex flex-col justify-between h-full transform transition-transform duration-300 hover:-translate-y-2"
+                  className="bg-[#2D3748] p-6 rounded-lg shadow-lg flex flex-col justify-between h-full transform transition-transform duration-300 hover:-translate-y-2 border border-[#2D3748] hover:border-[#66FCF1] hover:shadow-xl"
                 >
                   <div className="flex justify-between items-center mb-4">
                     <svg
@@ -261,7 +262,7 @@ const Projects = () => {
                       strokeWidth="1"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      className="text-[#64ffda]"
+                      className="text-[#66FCF1]"
                     >
                       <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
                     </svg>
@@ -271,7 +272,7 @@ const Projects = () => {
                           href={project.github}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-[#ccd6f6] hover:text-[#64ffda] transition-colors"
+                          className="text-[#E2E8F0] hover:text-[#66FCF1] transition-colors"
                           aria-label="GitHub"
                         >
                           <svg
@@ -294,7 +295,7 @@ const Projects = () => {
                           href={project.live}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-[#ccd6f6] hover:text-[#64ffda] transition-colors"
+                          className="text-[#E2E8F0] hover:text-[#66FCF1] transition-colors"
                           aria-label="External Link"
                         >
                           <svg
@@ -316,15 +317,15 @@ const Projects = () => {
                       )}
                     </div>
                   </div>
-                  <h3 className="text-xl font-bold text-[#ccd6f6] mb-2">
+                  <h3 className="text-xl font-bold text-[#E2E8F0] mb-2">
                     {project.title}
                   </h3>
-                  <p className="text-[#8892b0] text-sm mb-4 flex-grow">
+                  <p className="text-[#A0AEC0] text-sm mb-4 flex-grow">
                     {project.description}
                   </p>
                   <ul className="flex flex-wrap gap-2 font-mono text-xs">
                     {project.tags.map((tag, i) => (
-                      <li key={i} className="text-[#8892b0]">
+                      <li key={i} className="text-[#A0AEC0]">
                         {tag}
                       </li>
                     ))}

@@ -4,13 +4,13 @@ const FixedElements = () => {
   return (
     <>
       {/* Left Side - Social Links */}
-      <div className="fixed left-8 bottom-0 hidden md:flex flex-col items-center after:content-[''] after:block after:w-[1px] after:h-32 after:bg-[#8892b0]">
+      <div className="fixed left-8 bottom-0 hidden md:flex flex-col items-center after:content-[''] after:block after:w-[1px] after:h-32 after:bg-[#A0AEC0]">
         <div className="flex flex-col gap-6 mb-8">
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/Abhishek-Jaiswar"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#8892b0] hover:text-[#64ffda] transition-colors"
+            className="text-[#A0AEC0] hover:text-[#66FCF1] transition-colors"
             aria-label="GitHub"
           >
             <svg
@@ -29,10 +29,10 @@ const FixedElements = () => {
             </svg>
           </a>
           <a
-            href="https://linkedin.com/in/yourusername"
+            href="https://linkedin.com/in/abhishek-jaiswar"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#8892b0] hover:text-[#64ffda] transition-colors"
+            className="text-[#A0AEC0] hover:text-[#66FCF1] transition-colors"
             aria-label="LinkedIn"
           >
             <svg
@@ -53,10 +53,10 @@ const FixedElements = () => {
             </svg>
           </a>
           <a
-            href="https://twitter.com/yourusername"
+            href="https://twitter.com/abhishek_jaiswar"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#8892b0] hover:text-[#64ffda] transition-colors"
+            className="text-[#A0AEC0] hover:text-[#66FCF1] transition-colors"
             aria-label="Twitter"
           >
             <svg
@@ -78,14 +78,14 @@ const FixedElements = () => {
       </div>
 
       {/* Right Side - Email */}
-      <div className="fixed right-8 bottom-0 hidden md:flex flex-col items-center after:content-[''] after:block after:w-[1px] after:h-32 after:bg-[#8892b0]">
+      <div className="fixed right-8 bottom-0 hidden md:flex flex-col items-center after:content-[''] after:block after:w-[1px] after:h-32 after:bg-[#A0AEC0]">
         <div className="mb-8">
           <a
-            href="mailto:your.email@example.com"
-            className="text-[#8892b0] hover:text-[#64ffda] transition-colors font-mono text-sm vertical-rl"
+            href="mailto:abhisheknduw@gmail.com"
+            className="text-[#A0AEC0] hover:text-[#66FCF1] transition-colors font-mono text-sm vertical-rl"
             style={{ writingMode: "vertical-rl" }}
           >
-            your.email@example.com
+            abhisheknduw@gmail.com
           </a>
         </div>
       </div>

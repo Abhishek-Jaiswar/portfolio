@@ -1,137 +1,144 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
 
 const Experience = () => {
-  const [isVisible, setIsVisible] = useState(false);
   const [activeTab, setActiveTab] = useState(0);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    const element = document.getElementById("experience");
-    if (element) {
-      observer.observe(element);
-    }
-
-    return () => {
-      if (element) {
-        observer.unobserve(element);
-      }
-    };
-  }, []);
+  const sectionRef = useRef<HTMLElement>(null);
+  const tabsRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
 
   const experiences = [
     {
-      company: "Upstatement",
-      position: "Lead Engineer @ Upstatement",
-      period: "May 2018 - Present",
+      company: "Education",
+      position: "Computer Science Graduate",
+      period: "2020 - 2024",
       description: [
-        "Deliver high-quality, robust production code for a diverse array of projects for clients including Harvard Business School, Everytown for Gun Safety, Pratt Institute, Koala Health, Vanderbilt University, The 19th News, and more",
-        "Work alongside creative directors to lead the research, development, and architecture of technical solutions to fulfill business requirements",
-        "Collaborate with designers, project managers, and other engineers to transform creative concepts into production realities for clients and stakeholders",
-        "Provide leadership within engineering department through close collaboration, knowledge shares, and mentorship",
+        "Completed Bachelor's degree in Computer Science with focus on web development and software engineering",
+        "Maintained strong academic performance while actively participating in coding competitions and hackathons",
+        "Developed a solid foundation in data structures, algorithms, and modern web technologies",
+        "Contributed to open-source projects and collaborated with peers on various coding initiatives",
       ],
     },
     {
-      company: "Apple",
-      position: "Software Engineer @ Apple",
-      period: "June 2017 - May 2018",
+      company: "Projects",
+      position: "Full Stack Developer",
+      period: "2023 - Present",
       description: [
-        "Developed and maintained applications for Apple Music using Swift and Objective-C",
-        "Collaborated with product teams to define and implement new features",
-        "Participated in code reviews and contributed to architectural decisions",
+        "Built and deployed multiple full-stack applications using React, Next.js, and Node.js",
+        "Developed responsive and accessible web interfaces with modern CSS frameworks",
+        "Implemented RESTful APIs and integrated various third-party services",
+        "Created portfolio projects showcasing proficiency in frontend and backend development",
       ],
     },
     {
-      company: "Scout Studio",
-      position: "Web Developer @ Scout Studio",
-      period: "September 2016 - May 2017",
+      company: "Skills",
+      position: "Technical Skills",
+      period: "Ongoing",
       description: [
-        "Built responsive websites for clients using HTML, CSS, and JavaScript",
-        "Worked with designers to implement pixel-perfect designs",
-        "Managed client communication and project timelines",
-      ],
-    },
-    {
-      company: "Starry",
-      position: "Front-End Developer @ Starry",
-      period: "May 2016 - September 2016",
-      description: [
-        "Developed user interfaces for a broadband internet service provider",
-        "Implemented features using React and Redux",
-        "Collaborated with a team of engineers and designers to improve user experience",
-      ],
-    },
-    {
-      company: "MullenLowe",
-      position: "Developer @ MullenLowe",
-      period: "September 2015 - May 2016",
-      description: [
-        "Built interactive web experiences for advertising campaigns",
-        "Worked with a variety of JavaScript frameworks and libraries",
-        "Assisted in the deployment and maintenance of web projects",
+        "Frontend: React, Next.js, TypeScript, Tailwind CSS, and modern JavaScript",
+        "Backend: Node.js, Express, RESTful APIs, and database management",
+        "Tools: Git, VS Code, Postman, and various development tools",
+        "Soft Skills: Problem-solving, teamwork, and continuous learning",
       ],
     },
   ];
 
+  useEffect(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top 80%",
+        end: "bottom 20%",
+        toggleActions: "play none none reverse",
+      },
+    });
+
+    if (tabsRef.current) {
+      tl.from(tabsRef.current, {
+        x: -50,
+        opacity: 0,
+        duration: 1,
+        ease: "power4.out",
+      });
+    }
+
+    if (contentRef.current) {
+      tl.from(
+        contentRef.current,
+        {
+          x: 50,
+          opacity: 0,
+          duration: 1,
+          ease: "power4.out",
+        },
+        "-=0.5"
+      );
+    }
+
+    return () => {
+      tl.kill();
+    };
+  }, []);
+
   return (
-    <section id="experience" className="py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div
-          className={`transform transition-all duration-1000 ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-          }`}
-        >
-          <h2 className="text-3xl font-bold text-[#ccd6f6] mb-12">
-            <span className="text-[#64ffda] font-mono">02.</span> Where I've
-            Worked
-          </h2>
-          <div className="flex flex-col md:flex-row gap-6 md:gap-8">
-            {/* Company Tabs */}
-            <div className="flex md:flex-col overflow-x-auto whitespace-nowrap md:whitespace-normal pb-4 md:pb-0 border-b-2 md:border-b-0 md:border-l-2 border-[#233554]">
+    <section ref={sectionRef} id="experience" className="py-20 relative">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#1A202C]/50 to-transparent" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <h2 className="flex items-center text-3xl font-bold text-[#E2E8F0] mb-12 relative">
+          <span className="text-[#66FCF1] font-mono text-xl mr-4">02.</span>
+          My Journey
+          <span className="flex-grow block h-[1px] bg-[#4A5568] ml-4"></span>
+        </h2>
+
+        <div className="grid md:grid-cols-12 gap-8">
+          {/* Category Tabs */}
+          <div ref={tabsRef} className="md:col-span-3">
+            <div className="flex md:flex-col overflow-x-auto md:overflow-x-visible border-b-2 md:border-b-0 md:border-l-2 border-[#4A5568]">
               {experiences.map((exp, index) => (
                 <button
                   key={exp.company}
-                  className={`py-3 px-4 md:px-6 text-left font-mono text-sm cursor-pointer transition-colors duration-300 ${
-                    activeTab === index
-                      ? "text-[#64ffda] bg-[#112240] border-b-2 md:border-b-0 md:border-l-2 border-[#64ffda]"
-                      : "text-[#8892b0] hover:bg-[#112240]"
-                  }`}
                   onClick={() => setActiveTab(index)}
+                  className={`py-3 px-4 md:px-6 text-left font-mono text-sm whitespace-nowrap transition-colors duration-300 ${
+                    activeTab === index
+                      ? "text-[#66FCF1] bg-[#2D3748] border-b-2 md:border-b-0 md:border-l-2 border-[#66FCF1]"
+                      : "text-[#A0AEC0] hover:bg-[#2D3748]"
+                  }`}
                 >
                   {exp.company}
                 </button>
               ))}
             </div>
+          </div>
 
-            {/* Job Details */}
-            <div className="flex-1">
-              <div className="text-[#8892b0]">
-                <h3 className="text-xl font-bold text-[#ccd6f6] mb-2">
-                  {experiences[activeTab].position}
-                </h3>
-                <p className="font-mono text-xs mb-4">
-                  {experiences[activeTab].period}
-                </p>
-                <ul className="list-none space-y-2">
-                  {experiences[activeTab].description.map((item, i) => (
-                    <li
-                      key={i}
-                      className="relative pl-6 before:content-['▹'] before:absolute before:left-0 before:text-[#64ffda]"
-                    >
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+          {/* Content Details */}
+          <div ref={contentRef} className="md:col-span-9">
+            <div className="space-y-4">
+              <h3 className="text-2xl font-bold text-[#E2E8F0]">
+                {experiences[activeTab].position}
+                {experiences[activeTab].company !== "Skills" && (
+                  <span className="text-[#66FCF1]">
+                    {" "}
+                    @ {experiences[activeTab].company}
+                  </span>
+                )}
+              </h3>
+              <p className="font-mono text-sm text-[#A0AEC0]">
+                {experiences[activeTab].period}
+              </p>
+              <ul className="space-y-3">
+                {experiences[activeTab].description.map((item, i) => (
+                  <li
+                    key={i}
+                    className="relative pl-6 text-[#A0AEC0] before:content-['▹'] before:absolute before:left-0 before:text-[#66FCF1]"
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>

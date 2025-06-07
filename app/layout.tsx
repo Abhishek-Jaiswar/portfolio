@@ -1,15 +1,30 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Playfair_Display, Poppins, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import FixedElements from "./components/FixedElements";
 
-const inter = Inter({
+const playfair = Playfair_Display({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-playfair",
+  display: "swap",
+});
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  variable: "--font-poppins",
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Your Name | Portfolio",
+  title: "Abhishek Jaiswar | Portfolio",
   description: "Personal portfolio showcasing my work and experience",
   keywords: ["portfolio", "developer", "software engineer", "web development"],
 };
@@ -22,10 +37,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${inter.variable} font-sans antialiased bg-[#0a192f] text-[#8892b0]`}
+        className={`${playfair.variable} ${poppins.variable} ${spaceGrotesk.variable} font-sans antialiased bg-[#1A202C] text-[#A0AEC0]`}
       >
-        <div className="relative min-h-screen">
-          <div className="fixed inset-0 bg-[#0a192f] bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#0a192f] via-[#0a192f] to-[#112240]"></div>
+        <div className="relative min-h-screen noise-overlay">
+          <div className="fixed inset-0 bg-[#1A202C] bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#1A202C] via-[#1A202C] to-[#2D3748]"></div>
           <div className="relative">
             {children}
             <FixedElements />
