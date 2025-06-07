@@ -139,14 +139,14 @@ const Projects = () => {
             {featuredProjects.map((project, index) => (
               <div
                 key={index}
-                className={`relative grid md:grid-cols-12 gap-4 items-center ${
-                  index % 2 === 1 ? "md:flex-row-reverse" : ""
-                }`}
+                className="relative grid md:grid-cols-12 gap-4 items-center"
               >
                 {/* Project Image */}
                 <div
-                  className={`relative col-span-7 row-span-full ${
-                    index % 2 === 1 ? "md:col-start-6" : "md:col-start-1"
+                  className={`relative row-span-full ${
+                    index % 2 === 0
+                      ? "md:col-start-7 md:col-span-6"
+                      : "md:col-start-1 md:col-span-6"
                   }`}
                 >
                   <div className="relative aspect-video rounded-lg overflow-hidden group">
@@ -156,14 +156,17 @@ const Projects = () => {
                       fill
                       className="object-cover transition-transform duration-300 group-hover:scale-105"
                     />
+                    {/* Initial subtle dark overlay, changes to mint on hover */}
                     <div className="absolute inset-0 bg-[#0a192f]/50 transition-colors duration-300 group-hover:bg-[#64ffda]/20" />
                   </div>
                 </div>
 
                 {/* Project Content */}
                 <div
-                  className={`relative col-span-6 row-span-full z-10 ${
-                    index % 2 === 1 ? "md:col-start-1" : "md:col-start-7"
+                  className={`relative row-span-full z-10 ${
+                    index % 2 === 0
+                      ? "md:col-start-1 md:col-span-6"
+                      : "md:col-start-7 md:col-span-6"
                   }`}
                 >
                   <p className="text-[#64ffda] font-mono text-sm mb-2">
