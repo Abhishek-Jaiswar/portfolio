@@ -160,7 +160,7 @@ const Hero = () => {
                 <div className="absolute inset-0 bg-[#66FCF1]/5 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
               </a>
               <button className="group text-[#E2E8F0] hover:text-[#66FCF1] font-mono text-sm flex items-center gap-2 transition-colors">
-                Let's talk
+                Let&apos;s talk
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
@@ -223,7 +223,7 @@ const Hero = () => {
               <div className="absolute inset-0 bg-[#66FCF1]/5 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
             </a>
             <button className="group text-[#E2E8F0] hover:text-[#66FCF1] font-mono text-sm flex items-center gap-2 transition-colors">
-              Let's talk
+              Let&apos;s talk
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
