@@ -7,7 +7,7 @@ datasource db {
   provider = "postgresql"
 }
 
-model projects {
+model Project {
   id            Int      @id @default(autoincrement())
   title         String   @db.VarChar(255)
   description   String
