@@ -18,8 +18,8 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center py-32 px-16 bg-white dark:bg-black sm:items-start">
+    <div className="flex min-h-screen items-center justify-center bg-zinc-50 dark:bg-black font-mono">
+      <main className="flex min-h-screen w-full max-w-4xl flex-col items-center py-32 px-16 bg-white dark:bg-black sm:items-start">
         <h1 className="text-5xl text-neutral-500 font-bold">
           Hello, I&apos;m Abhishek Jaiswar
         </h1>
@@ -49,8 +49,10 @@ export default function Home() {
           </p>
         </div>
 
-        <div>
-          <h1>Project&apos;s which i have done</h1>
+        <div className="mt-10">
+          <h1 className="text-neutral-500 hover:text-neutral-200 text-5xl font-bold">
+            Project&apos;s in production
+          </h1>
         </div>
       </main>
     </div>
