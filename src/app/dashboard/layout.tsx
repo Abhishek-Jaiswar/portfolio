@@ -24,12 +24,12 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
         </aside>
       </section>
 
-      <section className="flex flex-col w-full h-full">
-        <header className="h-14 flex items-center justify-center border-b border-neutral-700">
+      <section className="relative flex flex-col w-full h-full">
+        <header className="sticky top-0 h-14 flex items-center justify-center border-b border-neutral-700">
           <Header handleOpen={handleOpen} />
         </header>
 
-        <main className="flex h-full w-full p-4">{children}</main>
+        <main className="flex h-full w-full p-4 overflow-y-auto">{children}</main>
       </section>
     </div>
   );
