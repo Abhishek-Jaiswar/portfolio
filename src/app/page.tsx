@@ -1,120 +1,117 @@
 "use client";
 
+import Hero from "./components/Hero";
 import Projects from "./components/Projects";
-import { Github, Linkedin, Mail, ExternalLink } from "lucide-react";
+import ContactForm from "./components/ContactForm";
+import { motion } from "framer-motion";
+import { Github, Linkedin, Mail, Code2, Cpu, Globe, Zap, Server } from "lucide-react";
+
+const skills = [
+  { name: "Frontend", icon: Globe, items: ["React", "Next.js", "Tailwind", "Framer Motion"] },
+  { name: "Backend", icon: Server, items: ["Node.js", "Go", "PostgreSQL", "Prisma"] },
+  { name: "Systems", icon: Cpu, items: ["Docker", "System Design", "Microservices"] },
+  { name: "Others", icon: Zap, items: ["Clodinary", "Git", "REST APIs", "WebSocket"] },
+];
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background text-foreground dark:bg-slate-950">
-      {/* Background gradient effect */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-accent/10 rounded-full blur-3xl" />
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-accent/5 rounded-full blur-3xl" />
-      </div>
+    <div className="min-h-screen bg-background">
+      <main className="max-w-6xl mx-auto px-6 lg:px-12">
+        <Hero />
 
-      <main className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-24">
-        {/* Hero Section */}
-        <div className="mb-16 sm:mb-24">
-          <div className="mb-6">
-            <div className="inline-block">
-              <div className="px-3 py-1 rounded-full bg-accent/10 border border-accent/30 mb-4">
-                <p className="text-sm font-medium text-accent">
-                  Full-Stack Developer
-                </p>
-              </div>
+        {/* Skills Section */}
+        <section className="py-24">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+            <div>
+              <h2 className="text-4xl font-bold mb-4">Core Expertise</h2>
+              <p className="text-muted-foreground max-w-md">
+                Mastering the full stack to deliver robust and performant digital solutions.
+              </p>
             </div>
           </div>
 
-          <h1 className="text-5xl sm:text-7xl font-bold mb-6 leading-tight text-balance">
-            Hey, I&apos;m{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent/60">
-              Abhishek Jaiswar
-            </span>
-          </h1>
-
-          <div className="space-y-4 text-base sm:text-lg text-muted-foreground mb-8 max-w-2xl">
-            <p className="leading-relaxed">
-              I build scalable, production-ready systems from the ground up.
-              Full-stack development is my playground—architecting robust
-              backends and crafting responsive frontends that actually solve
-              problems.
-            </p>
-
-            <p className="leading-relaxed">
-              Based in Mumbai, I&apos;m drawn to system design, real-time
-              features, and the art of turning ideas into reliable platforms
-              that scale. I thrive in fast-moving environments where technical
-              excellence meets product thinking.
-            </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {skills.map((skill, i) => (
+              <motion.div
+                key={skill.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="p-8 rounded-[2rem] border border-border bg-card/10 backdrop-blur-sm hover:border-zinc-500/30 transition-all group"
+              >
+                <skill.icon className="w-10 h-10 text-zinc-500 mb-6 group-hover:scale-110 transition-transform" />
+                <h3 className="text-xl font-bold mb-4">{skill.name}</h3>
+                <ul className="space-y-2">
+                  {skill.items.map((item) => (
+                    <li key={item} className="text-sm text-muted-foreground flex items-center gap-2">
+                      <div className="w-1 h-1 rounded-full bg-zinc-500/40" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
           </div>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 items-start">
-            <a
-              href="#projects"
-              className="px-8 py-3 bg-accent text-accent-foreground rounded-lg font-semibold hover:bg-accent/90 transition-all duration-200 flex items-center gap-2 group"
-            >
-              View My Work
-              <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a
-              href="mailto:your-email@example.com"
-              className="px-8 py-3 border border-border hover:bg-muted/50 rounded-lg font-semibold transition-all duration-200"
-            >
-              Get in Touch
-            </a>
-          </div>
-        </div>
+        </section>
 
         {/* Projects Section */}
-        <div id="projects" className="mb-16">
-          <div className="mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-2 text-balance">
-              Projects in Production
-            </h2>
-            <p className="text-muted-foreground">
-              Shipping real products that solve real problems
-            </p>
+        <section id="projects" className="py-24">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+            <div>
+              <h2 className="text-4xl font-bold mb-4">Featured Work</h2>
+              <p className="text-muted-foreground max-w-md">
+                A collection of projects where technical excellence meets practical utility.
+              </p>
+            </div>
+            <motion.div
+              whileHover={{ x: 5 }}
+              className="text-foreground font-bold cursor-pointer flex items-center gap-2"
+            >
+              All projects <Code2 className="w-4 h-4" />
+            </motion.div>
           </div>
 
           <Projects />
-        </div>
+        </section>
+
+        {/* Contact Section */}
+        <section id="contact" className="py-24">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Let&apos;s Build Something <span className="text-gradient">Great</span></h2>
+            <p className="text-muted-foreground max-w-xl mx-auto text-lg">
+              Have a project in mind or just want to say hi? My inbox is always open.
+            </p>
+          </div>
+          <ContactForm />
+        </section>
 
         {/* Footer */}
-        <footer className="mt-24 pt-12 border-t border-border">
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-8">
-            <div>
-              <p className="text-sm text-muted-foreground mb-4">
-                Let&apos;s build something great together
-              </p>
-              <p className="text-sm text-muted-foreground">
-                © 2026 Abhishek Jaiswar. All rights reserved.
+        <footer className="py-20 border-t border-border mt-20">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-12">
+            <div className="text-center md:text-left">
+              <h2 className="text-3xl font-bold mb-4 text-zinc-500">Stay Connected</h2>
+              <p className="text-muted-foreground max-w-xs">
+                Active on GitHub and LinkedIn. Let&apos;s explore new horizons together.
               </p>
             </div>
 
             <div className="flex gap-4">
-              <a
-                href="#"
-                className="p-2 hover:bg-muted rounded-lg transition-colors duration-200"
-                aria-label="GitHub"
-              >
+              <a href="#" className="w-12 h-12 flex items-center justify-center rounded-full border border-border hover:bg-zinc-800 hover:text-zinc-100 transition-all">
                 <Github className="w-5 h-5" />
               </a>
-              <a
-                href="#"
-                className="p-2 hover:bg-muted rounded-lg transition-colors duration-200"
-                aria-label="LinkedIn"
-              >
+              <a href="#" className="w-12 h-12 flex items-center justify-center rounded-full border border-border hover:bg-zinc-800 hover:text-zinc-100 transition-all">
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a
-                href="mailto:your-email@example.com"
-                className="p-2 hover:bg-muted rounded-lg transition-colors duration-200"
-                aria-label="Email"
-              >
+              <a href="mailto:your-email@example.com" className="w-12 h-12 flex items-center justify-center rounded-full border border-border hover:bg-zinc-800 hover:text-zinc-100 transition-all">
                 <Mail className="w-5 h-5" />
               </a>
             </div>
+          </div>
+
+          <div className="mt-20 pt-8 border-t border-border/50 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-bold uppercase tracking-widest text-muted-foreground">
+            <p>© 2026 Abhishek Jaiswar</p>
+            <p>Built with NDX Ecosystem</p>
           </div>
         </footer>
       </main>
