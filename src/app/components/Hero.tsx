@@ -1,12 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Mail, Github, Linkedin, ArrowRight } from "lucide-react";
-import { cn } from "@/src/lib/utils";
+import {Mail, Github, Linkedin, ArrowRight } from "lucide-react";
 
 const Hero = () => {
     return (
-        <section className="relative min-h-[90vh] flex flex-col justify-center py-20 overflow-hidden">
+        <section className="relative min-h-[90vh] flex flex-col justify-center py-25 md:py-30 overflow-hidden">
             {/* Background elements */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10">
                 <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-zinc-500/10 rounded-full blur-[120px] animate-pulse" />
