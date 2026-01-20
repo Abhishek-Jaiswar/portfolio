@@ -26,6 +26,10 @@ const Navbar = () => {
 
   useEffect(() => setMounted(true), []);
 
+  if (pathname?.startsWith("/dashboard")) {
+    return null;
+  }
+
   return (
     <nav className="sticky top-0 left-0 w-full z-50 flex items-center overflow-hidden md:max-w-7xl px-4 mx-auto py-2 backdrop-blur-2xl">
       <div className="flex items-center gap-8 w-full justify-between">

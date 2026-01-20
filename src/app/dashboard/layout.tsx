@@ -12,12 +12,11 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   };
 
   return (
-    <div className="flex h-screen w-screen font-sans!">
+    <div className="flex h-screen w-screen font-sans bg-background text-foreground">
       <section className=" m-0 p-0">
         <aside
-          className={`h-full transition-all duration-100 ease-linear border-r border-neutral-700 ${
-            isOpen ? "w-[16rem]" : "w-0 overflow-hidden border-none"
-          }
+          className={`h-full transition-all duration-100 ease-linear border-r border-border ${isOpen ? "w-[16rem]" : "w-0 overflow-hidden border-none"
+            }
             `}
         >
           <Sidebar isOpen={isOpen} />
@@ -25,11 +24,11 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
       </section>
 
       <section className="relative flex flex-col w-full h-full">
-        <header className="sticky top-0 h-14 flex items-center justify-center border-b border-neutral-700">
+        <header className="sticky top-0 h-14 flex items-center justify-center border-b border-border">
           <Header handleOpen={handleOpen} />
         </header>
 
-        <main className="flex h-full w-full p-4 overflow-y-auto">{children}</main>
+        <main className="flex h-full w-full p-6 overflow-y-auto">{children}</main>
       </section>
     </div>
   );

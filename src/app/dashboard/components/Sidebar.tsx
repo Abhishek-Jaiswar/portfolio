@@ -47,18 +47,18 @@ const Sidebar = ({ isOpen }: Props) => {
   if (!isOpen) return null;
 
   return (
-    <div className="w-full h-full">
-      <div className="h-13 border-b border-neutral-700 flex items-center px-4 gap-2">
+    <div className="w-full h-full bg-card/30 backdrop-blur-sm">
+      <div className="h-14 border-b border-border flex items-center px-4 gap-2">
         <Link
           href="/"
-          className="w-10 h-10 bg-neutral-800/50 rounded-md flex items-center justify-center text-neutral-100 font-bold hover:bg-neutral-800 transition"
+          className="px-3 h-8 bg-primary rounded-lg flex items-center justify-center text-primary-foreground font-bold hover:opacity-90 transition shadow-lg text-sm tracking-tighter"
         >
-          AB
+          NDX
         </Link>
-        <h1 className="text-lg text-neutral-100 font-semibold">Portfolio</h1>
+        <h1 className="text-lg text-foreground font-bold tracking-tight">Portfolio</h1>
       </div>
 
-      <div className="mt-7 p-4 space-y-3">
+      <div className="mt-6 p-4 space-y-2">
         {sidebarLinks.map(({ id, name, path, icon: Icon }) => {
           const active = pathname === path;
 
@@ -66,16 +66,15 @@ const Sidebar = ({ isOpen }: Props) => {
             <Link
               key={id}
               href={path}
-              className={`flex items-center gap-2 px-4 py-2 rounded-md transition-all duration-150
-                ${
-                  active
-                    ? "bg-neutral-800/50 text-white"
-                    : "text-neutral-400 hover:bg-neutral-800/50 hover:text-white"
+              className={`flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all duration-200 group
+                ${active
+                  ? "bg-primary text-primary-foreground shadow-md shadow-primary/20"
+                  : "text-muted-foreground hover:bg-secondary/80 hover:text-foreground"
                 }
               `}
             >
-              <Icon size={18} />
-              {name}
+              <Icon size={18} className={`${active ? "text-primary-foreground" : "text-muted-foreground group-hover:text-foreground"} transition-colors`} />
+              <span className="font-medium">{name}</span>
             </Link>
           );
         })}

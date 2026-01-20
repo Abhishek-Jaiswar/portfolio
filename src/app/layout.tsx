@@ -25,6 +25,7 @@ export const metadata: Metadata = {
 
 import Navbar from "./components/Navbar";
 import { ThemeProvider } from "./components/ThemeProvider";
+import { Toaster } from "@/src/components/ui/sonner";
 
 export default function RootLayout({
   children,
@@ -45,6 +46,7 @@ export default function RootLayout({
           <div className="grain-overlay" />
           <Navbar />
           {children}
+          <Toaster richColors position="bottom-right" />
         </ThemeProvider>
       </body>
     </html>
