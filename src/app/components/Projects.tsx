@@ -5,7 +5,7 @@ import axios from "axios";
 import { ExternalLink, Github, Code2, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { cn } from "@/src/lib/utils";
 
 const Projects = () => {
